@@ -23,6 +23,10 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 npm run test:coverage to see % of app functions tested.
 
+### `json-server`
+
+npx json-server --watch db.json --port 5000 to launch db.json in dev environment, it auto starts on npm run start
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
