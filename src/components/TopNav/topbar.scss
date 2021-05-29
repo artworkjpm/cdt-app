@@ -1,5 +1,5 @@
 .top-bar {
-	background-color: green;
+	background-color: black;
 	color: white;
 	padding: 10px;
 	display: flex;
@@ -15,5 +15,17 @@
 	}
 	.app-name {
 		margin-left: 20px;
+	}
+}
+
+.left-bar {
+	width: 300px;
+	background-color: #8bc8c1;
+	height: 100vh;
+	.item {
+		padding: 20px 0;
+		color: white;
+		text-align: center;
+		cursor: pointer;
 	}
 }

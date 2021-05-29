@@ -13,6 +13,11 @@ export default function TopNav() {
 					<h3>CDT App - John </h3>
 				</div>
 			</div>
+
+			<div className="left-bar">
+				<div className="item">Designs</div>
+				<div className="item">Users</div>
+			</div>
 		</div>
 	);
 }
