@@ -1,0 +1,19 @@
+.top-bar {
+	background-color: green;
+	color: white;
+	padding: 10px;
+	display: flex;
+
+	.menu {
+		cursor: pointer;
+		position: relative;
+		top: 20px;
+		padding-left: 10px;
+		svg {
+			font-size: 20px;
+		}
+	}
+	.app-name {
+		margin-left: 20px;
+	}
+}

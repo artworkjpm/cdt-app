@@ -1,23 +1,18 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import MenuIcon from "@material-ui/icons/Menu";
-import IconButton from "@material-ui/core/IconButton";
-
+import "./topbar.scss";
 export default function TopNav() {
 	return (
 		<div>
-			<AppBar position="static">
-				<Toolbar>
-					<IconButton edge="start" color="inherit" aria-label="menu">
-						{" "}
-						<MenuIcon />
-					</IconButton>
-					<Typography variant="h6">CDT app - John Moran</Typography>
-				</Toolbar>
-			</AppBar>
+			<div className="top-bar">
+				<div className="menu">
+					<FontAwesomeIcon icon={faBars} />
+				</div>
+				<div className="app-name">
+					<h3>CDT App - John </h3>
+				</div>
+			</div>
 		</div>
 	);
 }
