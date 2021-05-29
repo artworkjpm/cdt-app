@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import "./topbar.scss";
+import { Link } from "react-router-dom";
 export default function TopNav() {
 	return (
 		<div>
@@ -10,13 +11,21 @@ export default function TopNav() {
 					<FontAwesomeIcon icon={faBars} />
 				</div>
 				<div className="app-name">
-					<h3>CDT App - John </h3>
+					<Link to="/">
+						<div>
+							<h3>CDT App - John </h3>
+						</div>
+					</Link>
 				</div>
 			</div>
 
 			<div className="left-bar">
-				<div className="item">Designs</div>
-				<div className="item">Users</div>
+				<Link to="/designs">
+					<div className="item">Designs</div>
+				</Link>
+				<Link to="/setouts">
+					<div className="item">Setouts</div>
+				</Link>
 			</div>
 		</div>
 	);

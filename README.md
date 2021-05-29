@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Resources
+http://localhost:5000/designs
+http://localhost:5000/setouts
+http://localhost:5000/users
+
 ## Available Scripts
 
 In the project directory, you can run:
