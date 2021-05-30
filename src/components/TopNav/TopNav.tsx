@@ -18,15 +18,6 @@ export default function TopNav() {
 					</Link>
 				</div>
 			</div>
-
-			<div className="left-bar">
-				<Link to="/designs">
-					<div className="item">Designs</div>
-				</Link>
-				<Link to="/setouts">
-					<div className="item">Setouts</div>
-				</Link>
-			</div>
 		</div>
 	);
 }

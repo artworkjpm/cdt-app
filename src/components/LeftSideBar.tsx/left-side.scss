@@ -1,0 +1,12 @@
+.left-bar {
+	.item {
+		padding: 20px 0;
+		color: black;
+		text-align: center;
+		cursor: pointer;
+	}
+	.item:hover {
+		background-color: black;
+		color: white;
+	}
+}
