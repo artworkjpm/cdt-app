@@ -3,6 +3,11 @@ export interface ActionData {
 	payload: any;
 }
 
+export interface Users {
+	id: number;
+	name: string;
+}
+
 export interface DesignsItems {
 	courses: number;
 	id: number;

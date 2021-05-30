@@ -1,13 +1,20 @@
 import { ActionData } from "../models/interfaces";
 
 const initState = {
-	items: [],
+	designs: [],
+	setouts: [],
+	users: [],
 	loading: false,
 	error: null,
 };
 
 export const dataReducer = (state = initState, action: ActionData) => {
 	switch (action.type) {
+		case "SAVE_USERS_ARRAY":
+			return {
+				...state,
+				users: action.payload,
+			};
 		case "FETCH_DATA_REQUEST":
 			return {
 				...state,
@@ -18,7 +25,12 @@ export const dataReducer = (state = initState, action: ActionData) => {
 			return {
 				...state,
 				loading: false,
-				items: action.payload,
+				designs: action.payload,
+			};
+		case "UPDATE_DESIGN_OBJECT":
+			return {
+				...state,
+				designs: action.payload,
 			};
 
 		default:

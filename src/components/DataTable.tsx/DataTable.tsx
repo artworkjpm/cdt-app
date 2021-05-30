@@ -12,7 +12,7 @@ export default function DataTable({ tableHeaders, data }: Props) {
 				<thead>
 					<tr>
 						{tableHeaders.map((item, index) => {
-							return <th key={index}>{item}</th>;
+							return <th key={index}>{item.replace("_", " ")}</th>;
 						})}
 					</tr>
 				</thead>
@@ -21,7 +21,7 @@ export default function DataTable({ tableHeaders, data }: Props) {
 						return (
 							<tr key={index}>
 								{tableHeaders.map((el, i) => {
-									return <td>{item[el.toLowerCase()]}</td>;
+									return <td key={i}>{item[el.toLowerCase()]}</td>;
 								})}
 							</tr>
 						);
