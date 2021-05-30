@@ -12,8 +12,7 @@ export default function Designs() {
 	useEffect(() => {
 		dispatch(fetchUsersData());
 		dispatch(fetchDesignsData(users));
-		// eslint-disable-next-line
-	}, []);
+	}, [dispatch]);
 
 	const tableHeaders = ["Name", "Courses", "Wales", "Last_Updated", "By"];
 

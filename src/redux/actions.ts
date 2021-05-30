@@ -4,6 +4,7 @@ import { from } from "rxjs";
 import { map } from "rxjs/operators";
 import { useSelector } from "react-redux";
 import { Users } from "../models/interfaces";
+import { isTemplateExpression } from "typescript";
 
 /* const data = useSelector((state: { users: [Users] }) => state.users); */
 
@@ -44,11 +45,11 @@ export const fetchDesignsData = (usersArray: [Users]) => (dispatch: Dispatch<Act
 				});
 			})
 		)
-		.subscribe();
+		.subscribe(() => {});
 };
 
 const getUserName = (userNumber: number, usersArray: [Users]) => {
-	return usersArray[0].name;
+	return usersArray.filter((item) => item.id === userNumber).map((item) => item.name);
 };
 
 /* [{id: 1, name: "Walter Doe"},

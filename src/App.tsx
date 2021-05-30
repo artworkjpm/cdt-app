@@ -18,7 +18,7 @@ function App() {
 					<div className="content-container">
 						<Switch>
 							<Route exact path="/" render={() => <Redirect to="/designs" />} />
-							<Route exact path="/designs" render={() => <Designs />} />
+							<Route exact path="/designs" component={Designs} />
 							<Route exact path="/setouts" render={() => <Setouts />} />
 						</Switch>
 					</div>
