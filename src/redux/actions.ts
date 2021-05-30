@@ -2,9 +2,7 @@ import { Action, Dispatch } from "redux";
 import axios from "axios";
 import { from } from "rxjs";
 import { map } from "rxjs/operators";
-import { useSelector } from "react-redux";
 import { Users } from "../models/interfaces";
-import { isTemplateExpression } from "typescript";
 
 /* const data = useSelector((state: { users: [Users] }) => state.users); */
 
