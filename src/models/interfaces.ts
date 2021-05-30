@@ -17,3 +17,11 @@ export interface DesignsItems {
 	user_id_last_update: number;
 	wales: number;
 }
+
+export interface NewDesignArrayObject {
+	name: string;
+	courses: number;
+	wales: number;
+	last_updated: string;
+	by: string;
+}
