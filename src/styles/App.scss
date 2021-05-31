@@ -2,7 +2,7 @@
 
 .grid-container {
 	display: grid;
-	grid-template-columns: 250px 1fr;
+	grid-template-columns: 250px auto;
 	height: 100vh;
 }
 
@@ -12,4 +12,11 @@
 
 .content-container {
 	padding: 20px;
+	max-width: 100%;
+	overflow-y: scroll;
+}
+
+.scroll-div {
+	height: 50vh;
+	overflow: scroll;
 }

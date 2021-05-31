@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { DesignsItems } from "../../models/interfaces";
 import { fetchDesigns, updateAmount } from "../../redux/actions/designActions";
 import DataTable from "../DataTable/DataTable";
-import "./designs.scss";
 
 export default function Designs() {
 	const dispatch = useDispatch();

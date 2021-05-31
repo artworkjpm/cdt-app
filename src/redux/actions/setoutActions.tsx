@@ -5,11 +5,11 @@ import { map } from "rxjs/operators";
 import moment from "moment";
 import { SetoutsModel } from "../../models/interfaces";
 
-export const fetchSetouts = () => (dispatch: Dispatch<Action>) => {
+export const fetchSetouts = (fromNumber: number) => (dispatch: Dispatch<Action>) => {
 	dispatch({
 		type: "FETCH_SETOUTS_REQUEST",
 	});
-	const responsePromise = axios.get("http://localhost:5000/setouts");
+	const responsePromise = axios.get(`http://localhost:5000/setouts?_start=0&_end=${fromNumber}`);
 	const response$ = from(responsePromise);
 	response$
 		.pipe(
@@ -24,4 +24,10 @@ export const fetchSetouts = () => (dispatch: Dispatch<Action>) => {
 			})
 		)
 		.subscribe();
+};
+export const updateAmount = (until: number) => (dispatch: Dispatch<Action>) => {
+	dispatch({
+		type: "LOAD_SCROLLER",
+		until,
+	});
 };

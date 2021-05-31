@@ -3,6 +3,7 @@ import { ActionData } from "../../models/interfaces";
 const initState = {
 	setouts: [],
 	loading: false,
+	until: 5,
 	error: null,
 };
 
@@ -19,6 +20,12 @@ export const setOutsReducer = (state = initState, action: ActionData) => {
 				...state,
 				loading: false,
 				setouts: action.payload,
+			};
+
+		case "LOAD_SCROLLER":
+			return {
+				...state,
+				until: action.until,
 			};
 
 		default:
