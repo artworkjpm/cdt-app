@@ -6,8 +6,6 @@ interface Props {
 }
 
 export default function DataTable({ tableHeaders, data }: Props) {
-	console.log(tableHeaders, data);
-
 	return (
 		<div>
 			<table>

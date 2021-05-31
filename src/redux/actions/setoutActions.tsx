@@ -2,6 +2,8 @@ import { Action, Dispatch } from "redux";
 import axios from "axios";
 import { from } from "rxjs";
 import { map } from "rxjs/operators";
+import moment from "moment";
+import { SetoutsModel } from "../../models/interfaces";
 
 export const fetchSetouts = () => (dispatch: Dispatch<Action>) => {
 	dispatch({
@@ -12,7 +14,9 @@ export const fetchSetouts = () => (dispatch: Dispatch<Action>) => {
 	response$
 		.pipe(
 			map((response) => {
-				console.log(response);
+				response.data.map((item: SetoutsModel) => {
+					return delete Object.assign(item, { last_updated: moment(item.updated).format("DD/MM/YYYY") })["updated"];
+				});
 				dispatch({
 					type: "FETCH_SETOUTS_SUCCESS",
 					payload: response.data,

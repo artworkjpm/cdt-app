@@ -28,7 +28,8 @@ export interface NewDesignArrayObject {
 
 export interface SetoutsModel {
 	id: number;
-	updated: string;
+	updated?: string;
+	last_updated: string;
 	name: string;
 	machine_name: string;
 	machine_width: number;

@@ -11,7 +11,7 @@ export default function Setouts() {
 		dispatch(fetchSetouts());
 	}, [dispatch]);
 
-	const tableHeaders = ["Name", "Machine Name", "Machine Width", "Courses", "Last_Updated"];
+	const tableHeaders = ["Name", "Machine_Name", "Machine_Width", "Courses", "Last_Updated"];
 
 	return (
 		<div>
