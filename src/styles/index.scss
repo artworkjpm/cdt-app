@@ -24,6 +24,7 @@ a {
 
 table {
 	border-collapse: collapse;
+	width: 100%;
 }
 
 th {
@@ -43,4 +44,10 @@ td {
 	text-align: center;
 	white-space: nowrap;
 	height: 60px;
+}
+td:first-child {
+	text-align: left;
+}
+tr {
+	cursor: pointer;
 }
