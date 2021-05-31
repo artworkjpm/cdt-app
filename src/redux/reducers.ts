@@ -15,21 +15,21 @@ export const dataReducer = (state = initState, action: ActionData) => {
 				...state,
 				users: action.payload,
 			};
-		case "FETCH_DATA_REQUEST":
+		case "FETCH_DESIGNS_REQUEST":
 			return {
 				...state,
 				loading: true,
 				error: null,
 			};
-		case "FETCH_DATA_SUCCESS":
+		case "FETCH_DESIGNS_SUCCESS":
 			return {
 				...state,
-				loading: false,
 				designs: action.payload,
 			};
 		case "UPDATE_DESIGN_OBJECT":
 			return {
 				...state,
+				loading: false,
 				designs: action.payload,
 			};
 
