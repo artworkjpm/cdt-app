@@ -5,7 +5,7 @@ import { map } from "rxjs/operators";
 import { DesignsItems, NewDesignArrayObject, Users } from "../../models/interfaces";
 import moment from "moment";
 
-export const fetchDesigns = () => (dispatch: Dispatch<Action>) => {
+export const fetchDesigns = (fromNumber: number) => (dispatch: Dispatch<Action>) => {
 	axios.get("http://localhost:5000/users").then((user) => {
 		dispatch({
 			type: "SAVE_USERS_ARRAY",
@@ -14,7 +14,7 @@ export const fetchDesigns = () => (dispatch: Dispatch<Action>) => {
 		dispatch({
 			type: "FETCH_DESIGNS_REQUEST",
 		});
-		const responsePromise = axios.get("http://localhost:5000/designs");
+		const responsePromise = axios.get(`http://localhost:5000/designs?_start=0&_end=${fromNumber}`);
 		const response$ = from(responsePromise);
 		response$
 			.pipe(
@@ -49,6 +49,12 @@ const getUserName = (userNumber: number, usersArray: [Users]) => {
 		.join("")
 		.toUpperCase();
 	return <div className="initials">{initials}</div>;
+	//[{id: 1, name: "Walter Doe"},{id: 2, name: "John Doe"}]
 };
 
-//[{id: 1, name: "Walter Doe"},{id: 2, name: "John Doe"}]
+export const updateAmount = (until: number) => (dispatch: Dispatch<Action>) => {
+	dispatch({
+		type: "LOAD_SCROLLER",
+		until,
+	});
+};

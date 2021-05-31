@@ -4,6 +4,7 @@ const initState = {
 	designs: [],
 	users: [],
 	loading: false,
+	until: 5,
 	error: null,
 };
 
@@ -30,6 +31,11 @@ export const designsReducer = (state = initState, action: ActionData) => {
 				...state,
 				loading: false,
 				designs: action.payload,
+			};
+		case "LOAD_SCROLLER":
+			return {
+				...state,
+				until: action.until,
 			};
 
 		default:
