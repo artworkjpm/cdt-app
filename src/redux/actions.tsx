@@ -5,14 +5,14 @@ import { map } from "rxjs/operators";
 import { DesignsItems, NewDesignArrayObject, Users } from "../models/interfaces";
 import moment from "moment";
 
-export const fetchUsersData = () => (dispatch: Dispatch<Action>) => {
+export const fetchDesigns = () => (dispatch: Dispatch<Action>) => {
 	axios.get("http://localhost:5000/users").then((user) => {
 		dispatch({
 			type: "SAVE_USERS_ARRAY",
 			payload: user.data,
 		});
 		dispatch({
-			type: "FETCH_DATA_REQUEST",
+			type: "FETCH_DESIGNS_REQUEST",
 		});
 		const responsePromise = axios.get("http://localhost:5000/designs");
 		const response$ = from(responsePromise);
@@ -30,7 +30,7 @@ export const fetchUsersData = () => (dispatch: Dispatch<Action>) => {
 						});
 					});
 					dispatch({
-						type: "FETCH_DATA_SUCCESS",
+						type: "FETCH_DESIGNS_SUCCESS",
 						payload: newArray,
 					});
 				})
