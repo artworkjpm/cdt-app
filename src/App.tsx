@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import "./App.scss";
+import "./styles/App.scss";
 import Designs from "./components/Designs/Designs";
-import LeftSideBar from "./components/LeftSideBar.tsx/LeftSideBar";
+import LeftSideBar from "./components/LeftSideBar/LeftSideBar";
 import Setouts from "./components/Setouts/Setouts";
 import TopNav from "./components/TopNav/TopNav";
 

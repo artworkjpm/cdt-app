@@ -40,11 +40,15 @@ export const fetchUsersData = () => (dispatch: Dispatch<Action>) => {
 };
 
 const getUserName = (userNumber: number, usersArray: [Users]) => {
-	return usersArray
+	let initials = usersArray
 		.filter((item) => item.id === userNumber)
 		.map((item) => item.name)
-		.join();
+		.join("")
+		.split(" ")
+		.map((el) => el.charAt(0))
+		.join("")
+		.toUpperCase();
+	return <div className="initials">{initials}</div>;
 };
 
-/* [{id: 1, name: "Walter Doe"},
-{id: 2, name: "John Doe"}] */
+//[{id: 1, name: "Walter Doe"},{id: 2, name: "John Doe"}]

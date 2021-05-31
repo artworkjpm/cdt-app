@@ -1,3 +1,5 @@
+import "./datatable.scss";
+
 interface Props {
 	tableHeaders: string[];
 	data: any[];

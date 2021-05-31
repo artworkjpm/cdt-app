@@ -23,5 +23,5 @@ export interface NewDesignArrayObject {
 	courses: number;
 	wales: number;
 	last_updated: string;
-	by: string;
+	by: any;
 }

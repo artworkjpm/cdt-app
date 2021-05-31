@@ -1,0 +1,13 @@
+@import "../../styles/variables.scss";
+
+.initials {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	background: $mainColor;
+	line-height: 3.2;
+	position: relative;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+}

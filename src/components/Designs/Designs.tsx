@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DesignsItems } from "../../models/interfaces";
 import { fetchUsersData } from "../../redux/actions";
-import DataTable from "../DataTable.tsx/DataTable";
+import DataTable from "../DataTable/DataTable";
 
 export default function Designs() {
 	const dispatch = useDispatch();
