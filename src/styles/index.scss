@@ -21,8 +21,17 @@ a {
 	text-decoration: none;
 	color: inherit;
 }
+
+table {
+	border-collapse: collapse;
+}
+
+th:first-child {
+	text-align: left;
+}
 th,
 td {
-	border-bottom: 1px solid #ddd;
-	padding: 20px;
+	border-bottom: 1px solid #c4c4c4;
+	padding: 15px;
+	text-align: center;
 }
