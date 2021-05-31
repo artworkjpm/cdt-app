@@ -1,14 +1,13 @@
-import { ActionData } from "../models/interfaces";
+import { ActionData } from "../../models/interfaces";
 
 const initState = {
 	designs: [],
-	setouts: [],
 	users: [],
 	loading: false,
 	error: null,
 };
 
-export const dataReducer = (state = initState, action: ActionData) => {
+export const designsReducer = (state = initState, action: ActionData) => {
 	switch (action.type) {
 		case "SAVE_USERS_ARRAY":
 			return {

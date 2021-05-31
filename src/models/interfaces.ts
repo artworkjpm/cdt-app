@@ -25,3 +25,12 @@ export interface NewDesignArrayObject {
 	last_updated: string;
 	by: any;
 }
+
+export interface SetoutsModel {
+	id: number;
+	updated: string;
+	name: string;
+	machine_name: string;
+	machine_width: number;
+	courses: number;
+}

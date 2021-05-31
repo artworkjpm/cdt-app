@@ -2,7 +2,7 @@ import { Action, Dispatch } from "redux";
 import axios from "axios";
 import { from } from "rxjs";
 import { map } from "rxjs/operators";
-import { DesignsItems, NewDesignArrayObject, Users } from "../models/interfaces";
+import { DesignsItems, NewDesignArrayObject, Users } from "../../models/interfaces";
 import moment from "moment";
 
 export const fetchDesigns = () => (dispatch: Dispatch<Action>) => {
