@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { DesignsItems } from "../../models/interfaces";
+import { DesignsItems, NewDesignArrayObject } from "../../models/interfaces";
 import { fetchDesigns, updateAmount } from "../../redux/actions/designActions";
 import DataTable from "../DataTable/DataTable";
 
@@ -18,7 +18,7 @@ export default function Designs() {
 	const tableHeaders = ["Name", "Courses", "Wales", "Last_Updated", "By"];
 	const editableFields = ["name", "courses", "wales"];
 
-	function handleScroll(event: any) {
+	function handleScroll(event: React.UIEvent<HTMLElement>) {
 		event.preventDefault();
 		const { scrollTop, clientHeight, scrollHeight } = event.currentTarget;
 		if (scrollHeight - scrollTop === clientHeight) {
@@ -33,7 +33,7 @@ export default function Designs() {
 	function handleClose() {
 		setOpenDialog(false);
 	}
-	const onSubmit = (editedItem: any) => {
+	const onSubmit = (editedItem: NewDesignArrayObject) => {
 		axios
 			.put(`http://localhost:5000/designs/${editedItem.id}`, editedItem)
 			.then(() => {
