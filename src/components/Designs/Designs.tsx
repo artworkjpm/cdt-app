@@ -21,6 +21,9 @@ export default function Designs() {
 	function handleScroll(event: React.UIEvent<HTMLElement>) {
 		event.preventDefault();
 		const { scrollTop, clientHeight, scrollHeight } = event.currentTarget;
+
+		console.log(scrollHeight - scrollTop, "clientHeight", clientHeight);
+
 		if (scrollHeight - scrollTop === clientHeight) {
 			dispatch(updateAmount(until + 5));
 			dispatch(fetchDesigns(until + 5));
