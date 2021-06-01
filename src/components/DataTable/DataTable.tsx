@@ -5,9 +5,11 @@ import "./datatable.scss";
 interface Props {
 	tableHeaders: string[];
 	data: any[];
+	editTitle: string;
+	editableFields: string[];
 }
 
-export default function DataTable({ tableHeaders, data }: Props) {
+export default function DataTable({ tableHeaders, data, editTitle, editableFields }: Props) {
 	const [open, setOpen] = useState(false);
 	const [editData, setEditData] = useState();
 
@@ -41,7 +43,7 @@ export default function DataTable({ tableHeaders, data }: Props) {
 					})}
 				</tbody>
 			</table>
-			<DialogEdit open={open} onClose={handleClose} editData={editData} />
+			{open && <DialogEdit title={editTitle} open={open} onClose={handleClose} editData={editData} editableFields={editableFields} />}
 		</div>
 	);
 }

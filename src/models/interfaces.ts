@@ -20,6 +20,7 @@ export interface DesignsItems {
 }
 
 export interface NewDesignArrayObject {
+	id: number;
 	name: string;
 	courses: number;
 	wales: number;

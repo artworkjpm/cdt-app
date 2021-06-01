@@ -13,6 +13,7 @@ export default function Setouts() {
 	}, [dispatch]);
 
 	const tableHeaders = ["Name", "Machine_Name", "Machine_Width", "Courses", "Last_Updated"];
+	const editableFields = ["name", "machine_name", "machine_width", "courses"];
 
 	function handleScroll(event: any) {
 		event.preventDefault();
@@ -25,7 +26,7 @@ export default function Setouts() {
 
 	return (
 		<div className="scroll-div" onScroll={handleScroll}>
-			<DataTable tableHeaders={tableHeaders} data={data}></DataTable>
+			<DataTable editTitle="Setout" tableHeaders={tableHeaders} data={data} editableFields={editableFields}></DataTable>
 		</div>
 	);
 }

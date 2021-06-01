@@ -51,3 +51,8 @@ td:first-child {
 tr {
 	cursor: pointer;
 }
+
+.MuiFormControl-root {
+	display: block !important;
+	margin-bottom: 20px !important;
+}

@@ -22,6 +22,7 @@ export const fetchDesigns = (fromNumber: number) => (dispatch: Dispatch<Action>)
 					const newArray: NewDesignArrayObject[] = [];
 					response.data.map((item: DesignsItems) => {
 						return newArray.push({
+							id: item.id,
 							name: item.name,
 							courses: item.courses,
 							wales: item.wales,

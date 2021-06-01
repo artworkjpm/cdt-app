@@ -14,6 +14,7 @@ export default function Designs() {
 	}, [dispatch]);
 
 	const tableHeaders = ["Name", "Courses", "Wales", "Last_Updated", "By"];
+	const editableFields = ["name", "courses", "wales"];
 
 	function handleScroll(event: any) {
 		event.preventDefault();
@@ -26,7 +27,7 @@ export default function Designs() {
 
 	return (
 		<div className="scroll-div" onScroll={handleScroll}>
-			<DataTable tableHeaders={tableHeaders} data={data}></DataTable>
+			<DataTable editTitle="Design" tableHeaders={tableHeaders} data={data} editableFields={editableFields}></DataTable>
 		</div>
 	);
 }
