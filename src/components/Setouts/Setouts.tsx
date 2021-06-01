@@ -24,9 +24,13 @@ export default function Setouts() {
 		}
 	}
 
+	const onSubmit = () => {
+		alert("onSubmit setputs");
+	};
+
 	return (
 		<div className="scroll-div" onScroll={handleScroll}>
-			<DataTable editTitle="Setout" tableHeaders={tableHeaders} data={data} editableFields={editableFields}></DataTable>
+			<DataTable editTitle="Setout" tableHeaders={tableHeaders} data={data} editableFields={editableFields} onEditSubmit={onSubmit}></DataTable>
 		</div>
 	);
 }

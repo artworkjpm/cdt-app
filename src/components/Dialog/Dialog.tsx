@@ -11,10 +11,11 @@ export interface ModalProps {
 	editData: any;
 	title: string;
 	editableFields: string[];
+	onEditSubmit: any;
 }
 
 export default function DialogEdit(props: ModalProps) {
-	const { onClose, open, editData, title, editableFields } = props;
+	const { onClose, open, editData, title, editableFields, onEditSubmit } = props;
 	const handleClose = () => {
 		onClose();
 	};
@@ -32,7 +33,7 @@ export default function DialogEdit(props: ModalProps) {
 
 	const onSubmit = (event: React.FormEvent) => {
 		event.preventDefault();
-		alert("test");
+		onEditSubmit(data);
 	};
 
 	return (

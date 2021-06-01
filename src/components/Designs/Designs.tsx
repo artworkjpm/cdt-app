@@ -25,9 +25,13 @@ export default function Designs() {
 		}
 	}
 
+	const onSubmit = (editedItem: any) => {
+		console.log(editedItem);
+	};
+
 	return (
 		<div className="scroll-div" onScroll={handleScroll}>
-			<DataTable editTitle="Design" tableHeaders={tableHeaders} data={data} editableFields={editableFields}></DataTable>
+			<DataTable editTitle="Design" tableHeaders={tableHeaders} data={data} editableFields={editableFields} onEditSubmit={onSubmit}></DataTable>
 		</div>
 	);
 }

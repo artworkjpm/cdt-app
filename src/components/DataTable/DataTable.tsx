@@ -7,9 +7,10 @@ interface Props {
 	data: any[];
 	editTitle: string;
 	editableFields: string[];
+	onEditSubmit: any;
 }
 
-export default function DataTable({ tableHeaders, data, editTitle, editableFields }: Props) {
+export default function DataTable({ tableHeaders, data, editTitle, editableFields, onEditSubmit }: Props) {
 	const [open, setOpen] = useState(false);
 	const [editData, setEditData] = useState();
 
@@ -43,7 +44,7 @@ export default function DataTable({ tableHeaders, data, editTitle, editableField
 					})}
 				</tbody>
 			</table>
-			{open && <DialogEdit title={editTitle} open={open} onClose={handleClose} editData={editData} editableFields={editableFields} />}
+			{open && <DialogEdit title={editTitle} open={open} onClose={handleClose} editData={editData} editableFields={editableFields} onEditSubmit={onEditSubmit} />}
 		</div>
 	);
 }
