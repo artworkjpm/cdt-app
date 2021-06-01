@@ -6,38 +6,30 @@ import TextField from "@material-ui/core/TextField";
 import React, { ChangeEvent, useState } from "react";
 
 export interface ModalProps {
-	open: boolean;
-	onClose: () => void;
+	openDialog: boolean;
 	editData: any;
 	title: string;
 	editableFields: string[];
 	onEditSubmit: any;
+	handleClose: any;
 }
 
 export default function DialogEdit(props: ModalProps) {
-	const { onClose, open, editData, title, editableFields, onEditSubmit } = props;
-	const handleClose = () => {
-		onClose();
-	};
-	//form code
-	console.log(editData);
-
+	const { handleClose, openDialog, editData, title, editableFields, onEditSubmit } = props;
 	const [data, setData] = useState(editData);
-
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setData({
 			...data,
 			[event.target.id]: event.target.value,
 		});
 	};
-
 	const onSubmit = (event: React.FormEvent) => {
 		event.preventDefault();
 		onEditSubmit(data);
 	};
 
 	return (
-		<Dialog onClose={handleClose} open={open}>
+		<Dialog onClose={handleClose} open={openDialog}>
 			<DialogTitle>Edit {title}</DialogTitle>
 			<DialogContent>
 				<form noValidate autoComplete="off" onSubmit={onSubmit}>

@@ -27,7 +27,7 @@ export const fetchDesigns = (fromNumber: number) => (dispatch: Dispatch<Action>)
 							courses: item.courses,
 							wales: item.wales,
 							last_updated: moment(item.updated).format("DD/MM/YYYY"),
-							by: getUserName(item.user_id_last_update, user.data),
+							by: !item.by ? getUserName(item.user_id_last_update, user.data) : <div className="initials">{item.by.props.children}</div>,
 						});
 					});
 					dispatch({

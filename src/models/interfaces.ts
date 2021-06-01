@@ -10,6 +10,7 @@ export interface Users {
 }
 
 export interface DesignsItems {
+	by: any;
 	courses: number;
 	id: number;
 	name: string;

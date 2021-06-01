@@ -8,18 +8,17 @@ interface Props {
 	editTitle: string;
 	editableFields: string[];
 	onEditSubmit: any;
+	openDialog: any;
+	handleClose: any;
+	handleOpen: any;
 }
 
-export default function DataTable({ tableHeaders, data, editTitle, editableFields, onEditSubmit }: Props) {
-	const [open, setOpen] = useState(false);
+export default function DataTable({ tableHeaders, data, editTitle, editableFields, onEditSubmit, openDialog, handleClose, handleOpen }: Props) {
 	const [editData, setEditData] = useState();
 
 	const handleClickOpen = (itemData: any) => {
-		setOpen(true);
+		handleOpen();
 		setEditData(itemData);
-	};
-	const handleClose = () => {
-		setOpen(false);
 	};
 
 	return (
@@ -44,7 +43,7 @@ export default function DataTable({ tableHeaders, data, editTitle, editableField
 					})}
 				</tbody>
 			</table>
-			{open && <DialogEdit title={editTitle} open={open} onClose={handleClose} editData={editData} editableFields={editableFields} onEditSubmit={onEditSubmit} />}
+			{openDialog && <DialogEdit title={editTitle} openDialog={openDialog} handleClose={handleClose} editData={editData} editableFields={editableFields} onEditSubmit={onEditSubmit} />}
 		</div>
 	);
 }

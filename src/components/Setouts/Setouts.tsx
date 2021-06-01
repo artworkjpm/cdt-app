@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SetoutsModel } from "../../models/interfaces";
 import { fetchSetouts, updateAmount } from "../../redux/actions/setoutActions";
@@ -8,6 +9,7 @@ export default function Setouts() {
 	const dispatch = useDispatch();
 	const data = useSelector((state: { setOutsReducer: { setouts: [SetoutsModel] } }) => state.setOutsReducer.setouts);
 	const until = useSelector((state: { setOutsReducer: { until: number } }) => state.setOutsReducer.until);
+	const [openDialog, setOpenDialog] = useState(false);
 	useEffect(() => {
 		dispatch(fetchSetouts(5));
 	}, [dispatch]);
@@ -24,13 +26,30 @@ export default function Setouts() {
 		}
 	}
 
-	const onSubmit = () => {
-		alert("onSubmit setputs");
+	const onSubmit = (editedItem: any) => {
+		axios
+			.put(`http://localhost:5000/setouts/${editedItem.id}`, editedItem)
+			.then(() => {
+				dispatch(fetchSetouts(until));
+				setOpenDialog(false);
+			})
+			.catch((error) => {
+				console.error(error);
+				setOpenDialog(false);
+			});
 	};
+
+	function handleOpen() {
+		setOpenDialog(true);
+	}
+
+	function handleClose() {
+		setOpenDialog(false);
+	}
 
 	return (
 		<div className="scroll-div" onScroll={handleScroll}>
-			<DataTable editTitle="Setout" tableHeaders={tableHeaders} data={data} editableFields={editableFields} onEditSubmit={onSubmit}></DataTable>
+			<DataTable handleOpen={handleOpen} handleClose={handleClose} openDialog={openDialog} editTitle="Setout" tableHeaders={tableHeaders} data={data} editableFields={editableFields} onEditSubmit={onSubmit}></DataTable>
 		</div>
 	);
 }

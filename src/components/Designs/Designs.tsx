@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DesignsItems } from "../../models/interfaces";
 import { fetchDesigns, updateAmount } from "../../redux/actions/designActions";
@@ -8,6 +9,7 @@ export default function Designs() {
 	const dispatch = useDispatch();
 	const data = useSelector((state: { designsReducer: { designs: [DesignsItems] } }) => state.designsReducer.designs);
 	const until = useSelector((state: { designsReducer: { until: number } }) => state.designsReducer.until);
+	const [openDialog, setOpenDialog] = useState(false);
 
 	useEffect(() => {
 		dispatch(fetchDesigns(5));
@@ -25,13 +27,28 @@ export default function Designs() {
 		}
 	}
 
+	function handleOpen() {
+		setOpenDialog(true);
+	}
+	function handleClose() {
+		setOpenDialog(false);
+	}
 	const onSubmit = (editedItem: any) => {
-		console.log(editedItem);
+		axios
+			.put(`http://localhost:5000/designs/${editedItem.id}`, editedItem)
+			.then(() => {
+				dispatch(fetchDesigns(until));
+				setOpenDialog(false);
+			})
+			.catch((error) => {
+				console.error(error);
+				setOpenDialog(false);
+			});
 	};
 
 	return (
 		<div className="scroll-div" onScroll={handleScroll}>
-			<DataTable editTitle="Design" tableHeaders={tableHeaders} data={data} editableFields={editableFields} onEditSubmit={onSubmit}></DataTable>
+			<DataTable editTitle="Design" tableHeaders={tableHeaders} data={data} editableFields={editableFields} onEditSubmit={onSubmit} handleOpen={handleOpen} handleClose={handleClose} openDialog={openDialog}></DataTable>
 		</div>
 	);
 }
