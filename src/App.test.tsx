@@ -7,5 +7,5 @@ test("renders learn react link", () => {
 	const wrapper = shallow(<App />);
 
 	console.log(wrapper.debug());
-	expect(true).toBe(true);
+	/* expect(true).toBe(true); */
 });
