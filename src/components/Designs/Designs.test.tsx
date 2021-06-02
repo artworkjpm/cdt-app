@@ -1,20 +1,12 @@
-import { mount, shallow } from "enzyme";
+import { render } from "@testing-library/react";
 import React from "react";
-import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
-import { rootReducer } from "../../redux/rootReducer";
-import Designs from "./Designs";
+import InfiniteScroll from "react-infinite-scroll-component";
 
-describe("<Designs /> unit test", () => {
-	/* const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
-	const getWrapper = () =>
-		shallow(
-			<Provider store={store}>
-				<Designs />
-			</Provider>
-		); */
-
-	it("should add to count and display the correct # of counts", () => {});
+it("<Designs> renders .infinite-scroll-component", () => {
+	const { container } = render(
+		<InfiniteScroll dataLength={4} loader={"Loading..."} hasMore={false} next={() => {}}>
+			<div />
+		</InfiniteScroll>
+	);
+	expect(container.querySelectorAll(".infinite-scroll-component").length).toBe(1);
 });
