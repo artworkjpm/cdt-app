@@ -14,6 +14,8 @@ interface Props {
 }
 
 export default function DataTable({ tableHeaders, data, editTitle, editableFields, onEditSubmit, openDialog, handleClose, handleOpen }: Props) {
+	console.log(data);
+
 	const [editData, setEditData] = useState();
 
 	const handleClickOpen = (itemData: any) => {
@@ -22,7 +24,7 @@ export default function DataTable({ tableHeaders, data, editTitle, editableField
 	};
 
 	return (
-		<div>
+		<div id="datatable">
 			<table>
 				<thead>
 					<tr>
