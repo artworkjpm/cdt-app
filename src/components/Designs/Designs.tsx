@@ -13,15 +13,15 @@ export default function Designs() {
 	const [openDialog, setOpenDialog] = useState(false);
 
 	useEffect(() => {
-		dispatch(fetchDesigns(5));
+		dispatch(fetchDesigns(10));
 	}, [dispatch]);
 
 	const tableHeaders = ["Name", "Courses", "Wales", "Last_Updated", "By"];
 	const editableFields = ["name", "courses", "wales"];
 
 	function handleScroll() {
-		dispatch(updateAmount(until + 5));
-		dispatch(fetchDesigns(until + 5));
+		dispatch(updateAmount(until + 10));
+		dispatch(fetchDesigns(until + 10));
 	}
 
 	function handleOpen() {

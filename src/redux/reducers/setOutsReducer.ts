@@ -3,7 +3,7 @@ import { ActionData } from "../../models/interfaces";
 const initState = {
 	setouts: [],
 	loading: false,
-	until: 5,
+	until: 10,
 	error: null,
 };
 

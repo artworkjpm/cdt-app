@@ -21,11 +21,7 @@
 	overflow-y: scroll;
 }
 
-.scroll-div {
-	overflow: scroll;
-}
-
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
 	.grid-container {
 		display: block;
 	}

@@ -12,20 +12,20 @@ export default function Setouts() {
 	const until = useSelector((state: { setOutsReducer: { until: number } }) => state.setOutsReducer.until);
 	const [openDialog, setOpenDialog] = useState(false);
 	useEffect(() => {
-		dispatch(fetchSetouts(5));
+		dispatch(fetchSetouts(10));
 	}, [dispatch]);
 
 	const tableHeaders = ["Name", "Machine_Name", "Machine_Width", "Courses", "Last_Updated"];
 	const editableFields = ["name", "machine_name", "machine_width", "courses"];
 
 	function handleScroll() {
-		dispatch(updateAmount(until + 5));
-		dispatch(fetchSetouts(until + 5));
+		dispatch(updateAmount(until + 10));
+		dispatch(fetchSetouts(until + 10));
 	}
 
 	const onSubmit = (editedItem: any) => {
 		axios
-			.put(`http://localhost:5000/setouts/${editedItem.id}`, editedItem)
+			.put(`http://localhost:10000/setouts/${editedItem.id}`, editedItem)
 			.then(() => {
 				dispatch(fetchSetouts(until));
 				setOpenDialog(false);
