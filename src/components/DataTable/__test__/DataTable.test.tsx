@@ -1,13 +1,15 @@
 import React from "react";
 import { shallow } from "enzyme";
 import DataTable from "../DataTable";
-import { data } from "./dummyData";
-import Designs from "../../Designs/Designs";
+import { dummyData } from "./dummyData";
 
-describe("foo test", () => {
-	test("should return ReactComponent", () => {
-		let props = { tableHeaders: ["Name", "Courses", "Wales", "Last_Updated", "By"], data: data, editTitle: "Designs", editableFields: ["name", "courses", "wales"], onEditSubmit: "", openDialog: "", handleClose: "", handleOpen: "" };
+import renderer from "react-test-renderer";
 
-		let wrapper = shallow(<DataTable {...props} />);
+describe("<DataTable/>", () => {
+	test("should have specific props", () => {
+		let props = { tableHeaders: ["Name", "Courses", "Wales", "Last_Updated", "By"], data: dummyData, editTitle: "Designs", editableFields: ["name", "courses", "wales"], onEditSubmit: "", openDialog: "", handleClose: "", handleOpen: "" };
+
+		const fakeDataTable = renderer.create(<DataTable {...props} />).toJSON();
+		expect(fakeDataTable).toMatchSnapshot();
 	});
 });

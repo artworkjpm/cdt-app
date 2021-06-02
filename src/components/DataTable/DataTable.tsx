@@ -14,8 +14,6 @@ interface Props {
 }
 
 export default function DataTable({ tableHeaders, data, editTitle, editableFields, onEditSubmit, openDialog, handleClose, handleOpen }: Props) {
-	console.log(data);
-
 	const [editData, setEditData] = useState();
 
 	const handleClickOpen = (itemData: any) => {
@@ -36,7 +34,7 @@ export default function DataTable({ tableHeaders, data, editTitle, editableField
 				<tbody>
 					{data.map((item, index) => {
 						return (
-							<tr key={index} onClick={() => handleClickOpen(item)}>
+							<tr id="clicker" key={index} onClick={() => handleClickOpen(item)}>
 								{tableHeaders.map((el, i) => {
 									return <td key={i}>{item[el.toLowerCase()]}</td>;
 								})}

@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DataTable/> should have specific props 1`] = `
+<div
+  id="datatable"
+>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Courses
+        </th>
+        <th>
+          Wales
+        </th>
+        <th>
+          Last Updated
+        </th>
+        <th>
+          By
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        id="clicker"
+        onClick={[Function]}
+      >
+        <td>
+          20th Design
+        </td>
+        <td>
+          111
+        </td>
+        <td>
+          333
+        </td>
+        <td>
+          12/04/2021
+        </td>
+        <td>
+          WD
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+`;
