@@ -17,6 +17,15 @@
 }
 
 .scroll-div {
-	height: 50vh;
+	height: 90vh;
 	overflow: scroll;
+}
+
+@media only screen and (max-width: 500px) {
+	.grid-container {
+		display: block;
+	}
+	.left-bar {
+		display: none;
+	}
 }
