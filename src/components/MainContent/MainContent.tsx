@@ -8,7 +8,7 @@ import Setouts from "../Setouts/Setouts";
 export default function MainContent() {
 	const showSideBar = useSelector((state: { mainAppReducer: { showSideBar: boolean } }) => state.mainAppReducer.showSideBar);
 	return (
-		<div className={showSideBar ? "grid-container" : "remove-grid"}>
+		<div id="parent" className={showSideBar ? "grid-container" : "remove-grid"}>
 			{showSideBar && (
 				<div className="left-bar">
 					<LeftSideBar />

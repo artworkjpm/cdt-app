@@ -6,7 +6,7 @@ import { fetchDesigns, updateAmount } from "../../redux/actions/designActions";
 import DataTable from "../DataTable/DataTable";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-export default function Designs() {
+const Designs = () => {
 	const dispatch = useDispatch();
 	const data = useSelector((state: { designsReducer: { designs: [DesignsItems] } }) => state.designsReducer.designs);
 	const until = useSelector((state: { designsReducer: { until: number } }) => state.designsReducer.until);
@@ -50,4 +50,6 @@ export default function Designs() {
 			</InfiniteScroll>
 		</div>
 	);
-}
+};
+
+export default Designs;

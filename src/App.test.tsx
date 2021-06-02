@@ -1,11 +1,20 @@
+import { shallow } from "enzyme";
 import React from "react";
-
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import { shallow, mount } from "enzyme";
+import MainContent from "./components/MainContent/MainContent";
+import TopNav from "./components/TopNav/TopNav";
 
-test("renders learn react link", () => {
+test("App should have certain components", () => {
 	const wrapper = shallow(<App />);
-
-	console.log(wrapper.debug());
-	/* expect(true).toBe(true); */
+	expect(
+		wrapper.contains(
+			<div>
+				<BrowserRouter>
+					<TopNav />
+					<MainContent />
+				</BrowserRouter>
+			</div>
+		)
+	).toBe(true);
 });
