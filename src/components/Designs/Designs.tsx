@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { DesignsItems, NewDesignArrayObject } from "../../models/interfaces";
 import { fetchDesigns, updateAmount } from "../../redux/actions/designActions";
 import DataTable from "../DataTable/DataTable";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Designs() {
 	const dispatch = useDispatch();
@@ -12,22 +13,15 @@ export default function Designs() {
 	const [openDialog, setOpenDialog] = useState(false);
 
 	useEffect(() => {
-		dispatch(fetchDesigns(10));
+		dispatch(fetchDesigns(5));
 	}, [dispatch]);
 
 	const tableHeaders = ["Name", "Courses", "Wales", "Last_Updated", "By"];
 	const editableFields = ["name", "courses", "wales"];
 
-	function handleScroll(event: React.UIEvent<HTMLElement>) {
-		event.preventDefault();
-		const { scrollTop, clientHeight, scrollHeight } = event.currentTarget;
-
-		console.log(scrollHeight - scrollTop, "clientHeight", clientHeight);
-
-		if (scrollHeight - scrollTop === clientHeight) {
-			dispatch(updateAmount(until + 10));
-			dispatch(fetchDesigns(until + 10));
-		}
+	function handleScroll() {
+		dispatch(updateAmount(until + 5));
+		dispatch(fetchDesigns(until + 5));
 	}
 
 	function handleOpen() {
@@ -50,8 +44,10 @@ export default function Designs() {
 	};
 
 	return (
-		<div className="scroll-div" onScroll={handleScroll}>
-			<DataTable editTitle="Design" tableHeaders={tableHeaders} data={data} editableFields={editableFields} onEditSubmit={onSubmit} handleOpen={handleOpen} handleClose={handleClose} openDialog={openDialog}></DataTable>
+		<div className="scroll-div">
+			<InfiniteScroll dataLength={data.length} next={handleScroll} hasMore={true} loader="">
+				<DataTable editTitle="Design" tableHeaders={tableHeaders} data={data} editableFields={editableFields} onEditSubmit={onSubmit} handleOpen={handleOpen} handleClose={handleClose} openDialog={openDialog}></DataTable>
+			</InfiniteScroll>
 		</div>
 	);
 }

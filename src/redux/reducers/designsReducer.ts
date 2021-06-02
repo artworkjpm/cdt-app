@@ -4,7 +4,7 @@ const initState = {
 	designs: [],
 	users: [],
 	loading: false,
-	until: 10,
+	until: 5,
 	error: null,
 };
 

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { useDispatch, useSelector } from "react-redux";
 import { SetoutsModel } from "../../models/interfaces";
 import { fetchSetouts, updateAmount } from "../../redux/actions/setoutActions";
@@ -17,13 +18,9 @@ export default function Setouts() {
 	const tableHeaders = ["Name", "Machine_Name", "Machine_Width", "Courses", "Last_Updated"];
 	const editableFields = ["name", "machine_name", "machine_width", "courses"];
 
-	function handleScroll(event: any) {
-		event.preventDefault();
-		const { scrollTop, clientHeight, scrollHeight } = event.currentTarget;
-		if (scrollHeight - scrollTop === clientHeight) {
-			dispatch(updateAmount(until + 5));
-			dispatch(fetchSetouts(until + 5));
-		}
+	function handleScroll() {
+		dispatch(updateAmount(until + 5));
+		dispatch(fetchSetouts(until + 5));
 	}
 
 	const onSubmit = (editedItem: any) => {
@@ -49,7 +46,9 @@ export default function Setouts() {
 
 	return (
 		<div className="scroll-div" onScroll={handleScroll}>
-			<DataTable handleOpen={handleOpen} handleClose={handleClose} openDialog={openDialog} editTitle="Setout" tableHeaders={tableHeaders} data={data} editableFields={editableFields} onEditSubmit={onSubmit}></DataTable>
+			<InfiniteScroll dataLength={data.length} next={handleScroll} hasMore={true} loader="">
+				<DataTable handleOpen={handleOpen} handleClose={handleClose} openDialog={openDialog} editTitle="Setout" tableHeaders={tableHeaders} data={data} editableFields={editableFields} onEditSubmit={onSubmit}></DataTable>
+			</InfiniteScroll>
 		</div>
 	);
 }
