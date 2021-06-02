@@ -1,9 +1,7 @@
 import React from "react";
-import { shallow } from "enzyme";
+import renderer from "react-test-renderer";
 import DataTable from "../DataTable";
 import { dummyData } from "./dummyData";
-
-import renderer from "react-test-renderer";
 
 describe("<DataTable/>", () => {
 	test("should have specific props", () => {
