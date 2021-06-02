@@ -6,12 +6,17 @@
 	height: 100vh;
 }
 
+.remove-grid {
+	display: block;
+	height: 100vh;
+}
+
 .left-bar {
 	background-color: $mainColor;
 }
 
 .content-container {
-	padding: 0 20px 20px 20px;
+	padding: 0 16px 20px 16px;
 	max-width: 100%;
 	overflow-y: scroll;
 }
@@ -25,6 +30,6 @@
 		display: block;
 	}
 	.left-bar {
-		display: none;
+		display: block;
 	}
 }

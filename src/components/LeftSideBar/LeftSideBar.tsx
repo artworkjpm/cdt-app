@@ -1,6 +1,6 @@
 import React from "react";
-import "./left-side.scss";
 import { NavLink } from "react-router-dom";
+import "./left-side.scss";
 export default function LeftSideBar() {
 	return (
 		<div>
