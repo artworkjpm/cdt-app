@@ -28,10 +28,6 @@ const DialogEdit = (props: ModalProps) => {
 		onEditSubmit(data);
 	}
 
-	function test() {
-		console.log("tesssst");
-	}
-
 	return (
 		<Dialog onClose={handleClose} open={openDialog}>
 			<DialogTitle>Edit {title}</DialogTitle>

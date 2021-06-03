@@ -1,22 +1,19 @@
-import { getByTestId } from "@testing-library/react";
-import { mount, shallow } from "enzyme";
-import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { mount } from "enzyme";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
 import { rootReducer } from "../../redux/rootReducer";
-import LeftSideBar from "../LeftSideBar/LeftSideBar";
-import MainContent from "./MainContent";
+import TopNav from "./TopNav";
 
 describe("<MainContent />", () => {
 	test("should have contain LeftSideBar", () => {
 		const store = createStore(rootReducer, applyMiddleware(thunk));
 		const wrapper = mount(
 			<Provider store={store}>
-				<MainContent />
+				<TopNav />
 			</Provider>
 		);
-
-		expect(wrapper.find(LeftSideBar)).toHaveLength(1);
+		expect(wrapper.find(FontAwesomeIcon)).toHaveLength(1);
 	});
 });

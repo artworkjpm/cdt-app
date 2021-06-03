@@ -25,7 +25,7 @@ export default function Setouts() {
 
 	const onSubmit = (editedItem: any) => {
 		axios
-			.put(`http://localhost:10000/setouts/${editedItem.id}`, editedItem)
+			.put(`http://localhost:5000/setouts/${editedItem.id}`, editedItem)
 			.then(() => {
 				dispatch(fetchSetouts(until));
 				setOpenDialog(false);
