@@ -5,7 +5,7 @@ import { map } from "rxjs/operators";
 import { DesignsItems, NewDesignArrayObject, Users } from "../../models/interfaces";
 import moment from "moment";
 
-export const fetchDesigns = (fromNumber: number) => (dispatch: Dispatch<Action>) => {
+export const fetchDesigns = (until: number) => (dispatch: Dispatch<Action>) => {
 	axios.get("http://localhost:5000/users").then((user) => {
 		dispatch({
 			type: "SAVE_USERS_ARRAY",
@@ -14,7 +14,7 @@ export const fetchDesigns = (fromNumber: number) => (dispatch: Dispatch<Action>)
 		dispatch({
 			type: "FETCH_DESIGNS_REQUEST",
 		});
-		const responsePromise = axios.get(`http://localhost:5000/designs?_start=0&_end=${fromNumber}`);
+		const responsePromise = axios.get(`http://localhost:5000/designs?_start=0&_end=${until}`);
 		const response$ = from(responsePromise);
 		response$
 			.pipe(
@@ -30,8 +30,6 @@ export const fetchDesigns = (fromNumber: number) => (dispatch: Dispatch<Action>)
 							by: !item.by ? getUserName(item.user_id_last_update, user.data) : <div className="initials">{item.by.props.children}</div>,
 						});
 					});
-					console.log(newArray);
-
 					dispatch({
 						type: "FETCH_DESIGNS_SUCCESS",
 						payload: newArray,

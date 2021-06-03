@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Designs> should render a startup component if startup is not complete 1`] = `
+"<Provider store={{...}}>
+  <Designs>
+    <div className=\\"scroll-div\\">
+      <InfiniteScroll dataLength={1} next={[Function: handleScroll]} hasMore={true} loader=\\"\\">
+        <div style={{...}} className=\\"infinite-scroll-component__outerdiv\\">
+          <div className=\\"infinite-scroll-component \\" style={{...}}>
+            <DataTable editTitle=\\"Design\\" tableHeaders={{...}} data={{...}} editableFields={{...}} onEditSubmit={[Function: onSubmit]} handleOpen={[Function: handleOpen]} handleClose={[Function: handleClose]} openDialog={false}>
+              <div id=\\"datatable\\">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>
+                        Name
+                      </th>
+                      <th>
+                        Courses
+                      </th>
+                      <th>
+                        Wales
+                      </th>
+                      <th>
+                        Last Updated
+                      </th>
+                      <th>
+                        By
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr onClick={[Function: onClick]}>
+                      <td>
+                        20th Design
+                      </td>
+                      <td>
+                        111
+                      </td>
+                      <td>
+                        333
+                      </td>
+                      <td>
+                        12/04/2021
+                      </td>
+                      <td>
+                        WD
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </DataTable>
+          </div>
+        </div>
+      </InfiniteScroll>
+    </div>
+  </Designs>
+</Provider>"
+`;

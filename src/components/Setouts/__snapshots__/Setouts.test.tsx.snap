@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Setouts> should render a startup component if startup is not complete 1`] = `
+"<Provider store={{...}}>
+  <Setouts>
+    <div className=\\"scroll-div\\" onScroll={[Function: handleScroll]}>
+      <InfiniteScroll dataLength={1} next={[Function: handleScroll]} hasMore={true} loader=\\"\\">
+        <div style={{...}} className=\\"infinite-scroll-component__outerdiv\\">
+          <div className=\\"infinite-scroll-component \\" style={{...}}>
+            <DataTable handleOpen={[Function: handleOpen]} handleClose={[Function: handleClose]} openDialog={false} editTitle=\\"Setout\\" tableHeaders={{...}} data={{...}} editableFields={{...}} onEditSubmit={[Function: onSubmit]}>
+              <div id=\\"datatable\\">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>
+                        Name
+                      </th>
+                      <th>
+                        Machine Name
+                      </th>
+                      <th>
+                        Machine Width
+                      </th>
+                      <th>
+                        Courses
+                      </th>
+                      <th>
+                        Last Updated
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr onClick={[Function: onClick]}>
+                      <td>
+                        1st Setout
+                      </td>
+                      <td>
+                        RSJ_4_1
+                      </td>
+                      <td>
+                        130
+                      </td>
+                      <td>
+                        200
+                      </td>
+                      <td>
+                        24/03/2021
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </DataTable>
+          </div>
+        </div>
+      </InfiniteScroll>
+    </div>
+  </Setouts>
+</Provider>"
+`;

@@ -1,14 +1,21 @@
-import { render } from "@testing-library/react";
-import React from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
+import { mount } from "enzyme";
+import { Provider } from "react-redux";
+import configureMockStore from "redux-mock-store";
+import thunk from "redux-thunk";
+import { dummyDataSetouts } from "../DataTable/__test__/dummyData";
+import Setouts from "./Setouts";
+const mockStore = configureMockStore([thunk]);
 
-describe("<Setouts /> unit test", () => {
-	it("InfiniteScroll renders children when passed in", () => {
-		const { container } = render(
-			<InfiniteScroll dataLength={4} loader={"Loading..."} hasMore={false} next={() => {}}>
-				<div className="child" />
-			</InfiniteScroll>
+describe("<Setouts>", () => {
+	it("should render a startup component if startup is not complete", () => {
+		const store = mockStore({
+			setOutsReducer: { setouts: dummyDataSetouts },
+		});
+		const wrapper = mount(
+			<Provider store={store}>
+				<Setouts />
+			</Provider>
 		);
-		expect(container.querySelectorAll(".child").length).toBe(1);
+		expect(wrapper.debug()).toMatchSnapshot();
 	});
 });

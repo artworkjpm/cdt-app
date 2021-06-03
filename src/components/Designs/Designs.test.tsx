@@ -1,12 +1,21 @@
-import { render } from "@testing-library/react";
-import React from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
+import { mount } from "enzyme";
+import { Provider } from "react-redux";
+import configureMockStore from "redux-mock-store";
+import thunk from "redux-thunk";
+import { dummyDataDesigns } from "../DataTable/__test__/dummyData";
+import Designs from "./Designs";
+const mockStore = configureMockStore([thunk]);
 
-it("<Designs> renders .infinite-scroll-component", () => {
-	const { container } = render(
-		<InfiniteScroll dataLength={4} loader={"Loading..."} hasMore={false} next={() => {}}>
-			<div />
-		</InfiniteScroll>
-	);
-	expect(container.querySelectorAll(".infinite-scroll-component").length).toBe(1);
+describe("<Designs>", () => {
+	it("should render a startup component if startup is not complete", () => {
+		const store = mockStore({
+			designsReducer: { designs: dummyDataDesigns },
+		});
+		const wrapper = mount(
+			<Provider store={store}>
+				<Designs />
+			</Provider>
+		);
+		expect(wrapper.debug()).toMatchSnapshot();
+	});
 });
