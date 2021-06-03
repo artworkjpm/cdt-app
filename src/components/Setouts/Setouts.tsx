@@ -12,8 +12,8 @@ export default function Setouts() {
 	const until = useSelector((state: { setOutsReducer: { until: number } }) => state.setOutsReducer.until);
 	const [openDialog, setOpenDialog] = useState(false);
 	useEffect(() => {
-		dispatch(fetchSetouts(10));
-	}, [dispatch]);
+		data.length < 1 && dispatch(fetchSetouts(10));
+	}, [dispatch, data]);
 
 	const tableHeaders = ["Name", "Machine_Name", "Machine_Width", "Courses", "Last_Updated"];
 	const editableFields = ["name", "machine_name", "machine_width", "courses"];

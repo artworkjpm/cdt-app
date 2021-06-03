@@ -13,8 +13,8 @@ const Designs = () => {
 	const [openDialog, setOpenDialog] = useState(false);
 
 	useEffect(() => {
-		dispatch(fetchDesigns(10));
-	}, [dispatch]);
+		data.length < 1 && dispatch(fetchDesigns(10));
+	}, [dispatch, data]);
 
 	const tableHeaders = ["Name", "Courses", "Wales", "Last_Updated", "By"];
 	const editableFields = ["name", "courses", "wales"];
