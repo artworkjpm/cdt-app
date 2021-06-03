@@ -26,7 +26,6 @@ exports[`<DataTable/> should have specific props 1`] = `
     </thead>
     <tbody>
       <tr
-        id="clicker"
         onClick={[Function]}
       >
         <td>

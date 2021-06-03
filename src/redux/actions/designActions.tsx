@@ -30,6 +30,8 @@ export const fetchDesigns = (fromNumber: number) => (dispatch: Dispatch<Action>)
 							by: !item.by ? getUserName(item.user_id_last_update, user.data) : <div className="initials">{item.by.props.children}</div>,
 						});
 					});
+					console.log(newArray);
+
 					dispatch({
 						type: "FETCH_DESIGNS_SUCCESS",
 						payload: newArray,
@@ -40,7 +42,7 @@ export const fetchDesigns = (fromNumber: number) => (dispatch: Dispatch<Action>)
 	});
 };
 
-const getUserName = (userNumber: number, usersArray: [Users]) => {
+export const getUserName = (userNumber: number, usersArray: Users[]) => {
 	let initials = usersArray
 		.filter((item) => item.id === userNumber)
 		.map((item) => item.name)
@@ -49,7 +51,12 @@ const getUserName = (userNumber: number, usersArray: [Users]) => {
 		.map((el) => el.charAt(0))
 		.join("")
 		.toUpperCase();
-	return <div className="initials">{initials}</div>;
+
+	return (
+		<div className="initials" data-initials={initials}>
+			{initials}
+		</div>
+	);
 	//[{id: 1, name: "Walter Doe"},{id: 2, name: "John Doe"}]
 };
 
