@@ -1,4 +1,5 @@
-import { mount } from "enzyme";
+import { mount, shallow } from "enzyme";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
@@ -7,7 +8,7 @@ import Designs from "./Designs";
 const mockStore = configureMockStore([thunk]);
 
 describe("<Designs>", () => {
-	it("should render a startup component if startup is not complete", () => {
+	it("should contain InfiniteScroll component", () => {
 		const store = mockStore({
 			designsReducer: { designs: dummyDataDesigns },
 		});
@@ -16,6 +17,6 @@ describe("<Designs>", () => {
 				<Designs />
 			</Provider>
 		);
-		expect(wrapper.debug()).toMatchSnapshot();
+		expect(wrapper.find(InfiniteScroll)).toHaveLength(1);
 	});
 });

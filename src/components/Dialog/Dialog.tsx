@@ -14,7 +14,7 @@ export interface ModalProps {
 	handleClose: any;
 }
 
-export default function DialogEdit(props: ModalProps) {
+const DialogEdit = (props: ModalProps) => {
 	const { handleClose, openDialog, editData, title, editableFields, onEditSubmit } = props;
 	const [data, setData] = useState(editData);
 	const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -23,10 +23,14 @@ export default function DialogEdit(props: ModalProps) {
 			[event.target.id]: event.target.value,
 		});
 	};
-	const onSubmit = (event: React.FormEvent) => {
+	function onSubmit(event: React.FormEvent) {
 		event.preventDefault();
 		onEditSubmit(data);
-	};
+	}
+
+	function test() {
+		console.log("tesssst");
+	}
 
 	return (
 		<Dialog onClose={handleClose} open={openDialog}>
@@ -44,4 +48,6 @@ export default function DialogEdit(props: ModalProps) {
 			<DialogActions></DialogActions>
 		</Dialog>
 	);
-}
+};
+
+export default DialogEdit;
