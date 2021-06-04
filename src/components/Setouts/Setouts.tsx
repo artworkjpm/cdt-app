@@ -12,7 +12,7 @@ export default function Setouts() {
 	const until = useSelector((state: { setOutsReducer: { until: number } }) => state.setOutsReducer.until);
 	const [openDialog, setOpenDialog] = useState(false);
 	useEffect(() => {
-		data.length < 1 && dispatch(fetchSetouts(10));
+		!data.length && dispatch(fetchSetouts(10));
 	}, [dispatch, data]);
 
 	const tableHeaders = ["Name", "Machine_Name", "Machine_Width", "Courses", "Last_Updated"];

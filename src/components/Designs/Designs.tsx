@@ -13,7 +13,7 @@ const Designs = () => {
 	const [openDialog, setOpenDialog] = useState(false);
 
 	useEffect(() => {
-		data.length < 1 && dispatch(fetchDesigns(10));
+		!data.length && dispatch(fetchDesigns(10));
 	}, [dispatch, data]);
 
 	const tableHeaders = ["Name", "Courses", "Wales", "Last_Updated", "By"];
