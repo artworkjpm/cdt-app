@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DesignsItems, NewDesignArrayObject } from "../../models/interfaces";
-import { fetchDesigns, updateAmount } from "../../redux/actions/designActions";
+import { fetchUsers, updateAmount } from "../../redux/actions/designActions";
 import DataTable from "../DataTable/DataTable";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -13,7 +13,7 @@ const Designs = () => {
 	const [openDialog, setOpenDialog] = useState(false);
 
 	useEffect(() => {
-		!data.length && dispatch(fetchDesigns(10));
+		!data.length && dispatch(fetchUsers());
 	}, [dispatch, data]);
 
 	const tableHeaders = ["Name", "Courses", "Wales", "Last_Updated", "By"];
@@ -21,7 +21,7 @@ const Designs = () => {
 
 	function handleScroll() {
 		dispatch(updateAmount(until + 10));
-		dispatch(fetchDesigns(until + 10));
+		/* dispatch(fetchDesigns(until + 10)); */
 	}
 
 	function handleOpen() {
@@ -34,7 +34,7 @@ const Designs = () => {
 		axios
 			.put(`http://localhost:5000/designs/${editedItem.id}`, editedItem)
 			.then(() => {
-				dispatch(fetchDesigns(until));
+				/* dispatch(fetchDesigns(until)); */
 				setOpenDialog(false);
 			})
 			.catch((error) => {

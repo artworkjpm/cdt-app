@@ -15,6 +15,14 @@ export const designsReducer = (state = initState, action: ActionData) => {
 				...state,
 				users: action.payload,
 			};
+
+		case "SAVE_USERS_ERROR":
+			return {
+				...state,
+				loading: false,
+				users: [],
+				error: action.payload.error,
+			};
 		case "FETCH_DESIGNS_REQUEST":
 			return {
 				...state,

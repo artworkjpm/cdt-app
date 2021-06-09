@@ -3,7 +3,7 @@ import { mount } from "enzyme";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
-import { rootReducer } from "../../redux/rootReducer";
+import rootReducer from "../../redux/rootReducer";
 import TopNav from "./TopNav";
 
 describe("<MainContent />", () => {

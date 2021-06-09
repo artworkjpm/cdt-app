@@ -5,7 +5,23 @@ import { map } from "rxjs/operators";
 import { DesignsItems, NewDesignArrayObject, Users } from "../../models/interfaces";
 import moment from "moment";
 
-export const fetchDesigns = (until: number) => (dispatch: Dispatch<Action>) => {
+export const fetchUsers = () => {
+	return {
+		type: "FETCH_USERS_REQUEST",
+	};
+};
+
+export const fetchUsersSuccess = (payload: Users[]) => ({
+	type: "SAVE_USERS_ARRAY",
+	payload,
+});
+
+export const fetchUsersFailure = (payload: any) => ({
+	type: "SAVE_USERS_ERROR",
+	error: payload,
+});
+
+/* export const fetchDesigns = (until: number) => (dispatch: Dispatch<Action>) => {
 	axios.get("http://localhost:5000/users").then((user) => {
 		dispatch({
 			type: "SAVE_USERS_ARRAY",
@@ -38,7 +54,7 @@ export const fetchDesigns = (until: number) => (dispatch: Dispatch<Action>) => {
 			)
 			.subscribe();
 	});
-};
+}; */
 
 export const getUserName = (userNumber: number, usersArray: Users[]) => {
 	let initials = usersArray
