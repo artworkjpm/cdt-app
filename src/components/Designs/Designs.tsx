@@ -1,20 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { DesignsItems, NewDesignArrayObject } from "../../models/interfaces";
-import { fetchUsers, updateAmount } from "../../redux/actions/designActions";
+import { DesignsItems, NewDesignArrayObject, Users } from "../../models/interfaces";
+import { fetchDesigns, fetchUsers, updateAmount } from "../../redux/actions/designActions";
 import DataTable from "../DataTable/DataTable";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const Designs = () => {
 	const dispatch = useDispatch();
 	const data = useSelector((state: { designsReducer: { designs: [DesignsItems] } }) => state.designsReducer.designs);
+	const users = useSelector((state: { designsReducer: { designs: [Users] } }) => state.designsReducer.designs);
 	const until = useSelector((state: { designsReducer: { until: number } }) => state.designsReducer.until);
 	const [openDialog, setOpenDialog] = useState(false);
 
 	useEffect(() => {
-		!data.length && dispatch(fetchUsers());
-	}, [dispatch, data]);
+		!users.length && dispatch(fetchUsers());
+		!data.length && dispatch(fetchDesigns(10));
+	}, [dispatch, users, data]);
 
 	const tableHeaders = ["Name", "Courses", "Wales", "Last_Updated", "By"];
 	const editableFields = ["name", "courses", "wales"];

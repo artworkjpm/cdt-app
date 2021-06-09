@@ -1,10 +1,10 @@
 import axios from "axios";
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import { DesignsItems, Users } from "../../models/interfaces";
+import { Users } from "../../models/interfaces";
 import { fetchUsersFailure, fetchUsersSuccess } from "../actions/designActions";
 
 function* usersSaga() {
-	yield all([takeLatest("FETCH_USERS_REQUEST", fetchUsersSaga)]);
+	yield all([takeLatest("FETCH_USERS_SAGA", fetchUsersSaga)]);
 }
 
 const getUsers = () => axios.get<Users[]>("http://localhost:5000/users");

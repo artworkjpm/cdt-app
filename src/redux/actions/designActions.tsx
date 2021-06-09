@@ -1,13 +1,9 @@
 import { Action, Dispatch } from "redux";
-import axios from "axios";
-import { from } from "rxjs";
-import { map } from "rxjs/operators";
-import { DesignsItems, NewDesignArrayObject, Users } from "../../models/interfaces";
-import moment from "moment";
+import { DesignsItems, Users } from "../../models/interfaces";
 
 export const fetchUsers = () => {
 	return {
-		type: "FETCH_USERS_REQUEST",
+		type: "FETCH_USERS_SAGA",
 	};
 };
 
@@ -18,6 +14,31 @@ export const fetchUsersSuccess = (payload: Users[]) => ({
 
 export const fetchUsersFailure = (payload: any) => ({
 	type: "SAVE_USERS_ERROR",
+	error: payload,
+});
+
+/* DESIGNS */
+
+export const fetchDesigns = (until: number) => {
+	return {
+		type: "FETCH_DESIGNS_SAGA",
+		until,
+	};
+};
+
+export const fetchDesignsRequest = () => {
+	return {
+		type: "FETCH_DESIGNS_REQUEST",
+	};
+};
+
+export const fetchDesignsSuccess = (payload: DesignsItems[]) => ({
+	type: "FETCH_DESIGNS_SUCCESS",
+	payload,
+});
+
+export const fetchDesignsFailure = (payload: any) => ({
+	type: "FETCH_DESIGNS_ERROR",
 	error: payload,
 });
 
