@@ -21,7 +21,7 @@ export const setOutsReducer = (state = initState, action: ActionData) => {
 			return {
 				...state,
 				loading: false,
-				setouts: action.response.data,
+				setouts: action.addDate,
 			};
 
 		case "FETCH_SETOUTS_FAIL":

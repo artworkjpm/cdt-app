@@ -5,6 +5,11 @@ export const fetchSetouts = (until: number) => {
 	};
 };
 
+export const updateAmount = (until: number) => ({
+	type: "LOAD_SCROLLER",
+	until,
+});
+
 /* export const fetchSetouts = (fromNumber: number) => (dispatch: Dispatch<Action>) => {
 	dispatch({
 		type: "FETCH_SETOUTS_REQUEST",
@@ -25,7 +30,3 @@ export const fetchSetouts = (until: number) => {
 		)
 		.subscribe();
 }; */
-export const updateAmount = (until: number) => ({
-	type: "LOAD_SCROLLER",
-	until,
-});

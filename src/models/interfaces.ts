@@ -1,4 +1,5 @@
 export interface ActionData {
+	addDate: any;
 	response: any;
 	error: any;
 	editedArray: NewDesignArrayObject;

@@ -21,6 +21,8 @@ const Designs = () => {
 	const editableFields = ["name", "courses", "wales"];
 
 	function handleScroll() {
+		console.log(data.length);
+
 		dispatch(updateAmount(until + 10));
 		dispatch(fetchDesigns(until + 10, users));
 	}

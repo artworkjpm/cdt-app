@@ -15,8 +15,8 @@ export default function Setouts() {
 	const [openDialog, setOpenDialog] = useState(false);
 
 	useEffect(() => {
-		dispatch(fetchSetouts(10));
-	}, [dispatch]);
+		!data.length && dispatch(fetchSetouts(10));
+	}, [dispatch, data]);
 
 	const tableHeaders = ["Name", "Machine_Name", "Machine_Width", "Courses", "Last_Updated"];
 	const editableFields = ["name", "machine_name", "machine_width", "courses"];

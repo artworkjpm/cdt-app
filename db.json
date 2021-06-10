@@ -201,10 +201,11 @@
     {
       "id": 3,
       "updated": "2021-03-26 08:44:31.810221",
-      "name": "3rd Setout",
+      "name": "3rd Setoutxx",
       "machine_name": "RSJ_5_1",
       "machine_width": 200,
-      "courses": 250
+      "courses": 250,
+      "last_updated": "26/03/2021"
     },
     {
       "id": 4,
@@ -344,7 +345,13 @@
     }
   ],
   "users": [
-    { "id": 1, "name": "Walter Doe" },
-    { "id": 2, "name": "John Doe" }
+    {
+      "id": 1,
+      "name": "Walter Doe"
+    },
+    {
+      "id": 2,
+      "name": "John Doe"
+    }
   ]
 }
