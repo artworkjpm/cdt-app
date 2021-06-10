@@ -1,4 +1,3 @@
-import { Action, Dispatch } from "redux";
 import { Users } from "../../models/interfaces";
 
 /* USERS */
@@ -21,10 +20,11 @@ export const fetchUsersFailure = (payload: any) => ({
 
 /* DESIGNS */
 
-export const fetchDesigns = (until: number) => {
+export const fetchDesigns = (until: number, users: Users[]) => {
 	return {
 		type: "FETCH_DESIGNS_SAGA",
 		until,
+		users,
 	};
 };
 
@@ -91,9 +91,7 @@ export const getUserName = (userNumber: number, usersArray: Users[]) => {
 	//[{id: 1, name: "Walter Doe"},{id: 2, name: "John Doe"}]
 };
 
-export const updateAmount = (until: number) => (dispatch: Dispatch<Action>) => {
-	dispatch({
-		type: "LOAD_SCROLLER",
-		until,
-	});
-};
+export const updateAmount = (until: number) => ({
+	type: "LOAD_SCROLLER",
+	until,
+});

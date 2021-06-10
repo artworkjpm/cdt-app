@@ -9,21 +9,20 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const Designs = () => {
 	const dispatch = useDispatch();
 	const data = useSelector((state: { designsReducer: { designs: [DesignsItems] } }) => state.designsReducer.designs);
-	const users = useSelector((state: { designsReducer: { designs: [Users] } }) => state.designsReducer.designs);
+	const users = useSelector((state: { designsReducer: { users: [Users] } }) => state.designsReducer.users);
 	const until = useSelector((state: { designsReducer: { until: number } }) => state.designsReducer.until);
 	const [openDialog, setOpenDialog] = useState(false);
 
 	useEffect(() => {
 		!users.length && dispatch(fetchUsers());
-		!data.length && dispatch(fetchDesigns(10));
-	}, [dispatch, users, data]);
+	}, [dispatch, users]);
 
 	const tableHeaders = ["Name", "Courses", "Wales", "Last_Updated", "By"];
 	const editableFields = ["name", "courses", "wales"];
 
 	function handleScroll() {
 		dispatch(updateAmount(until + 10));
-		/* dispatch(fetchDesigns(until + 10)); */
+		dispatch(fetchDesigns(until + 10, users));
 	}
 
 	function handleOpen() {
@@ -36,7 +35,7 @@ const Designs = () => {
 		axios
 			.put(`http://localhost:5000/designs/${editedItem.id}`, editedItem)
 			.then(() => {
-				/* dispatch(fetchDesigns(until)); */
+				dispatch(fetchDesigns(until, users));
 				setOpenDialog(false);
 			})
 			.catch((error) => {

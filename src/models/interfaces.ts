@@ -1,8 +1,8 @@
 export interface ActionData {
+	editedArray: NewDesignArrayObject;
 	until: number;
 	type: string;
 	payload: any;
-	response: { data: any };
 }
 
 export interface Users {

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { Users } from "../../models/interfaces";
-import { fetchUsersFailure, fetchUsersSuccess } from "../actions/designActions";
+import { fetchDesigns, fetchUsersFailure, fetchUsersSuccess } from "../actions/designActions";
 
 function* usersSaga() {
 	yield all([takeLatest("FETCH_USERS_SAGA", fetchUsersSaga)]);
@@ -13,6 +13,7 @@ function* fetchUsersSaga(): any {
 	try {
 		const response = yield call(getUsers);
 		yield put(fetchUsersSuccess(response.data));
+		yield put(fetchDesigns(10, response.data));
 	} catch (e) {
 		yield put(
 			fetchUsersFailure({
