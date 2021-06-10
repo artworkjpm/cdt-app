@@ -1,5 +1,7 @@
 import { Action, Dispatch } from "redux";
-import { DesignsItems, Users } from "../../models/interfaces";
+import { Users } from "../../models/interfaces";
+
+/* USERS */
 
 export const fetchUsers = () => {
 	return {
@@ -26,16 +28,10 @@ export const fetchDesigns = (until: number) => {
 	};
 };
 
-export const fetchDesignsRequest = () => {
-	return {
-		type: "FETCH_DESIGNS_REQUEST",
-	};
-};
-
-export const fetchDesignsSuccess = (payload: DesignsItems[]) => ({
+/* export const fetchDesignsSuccess = (payload: DesignsItems[]) => ({
 	type: "FETCH_DESIGNS_SUCCESS",
 	payload,
-});
+}); */
 
 export const fetchDesignsFailure = (payload: any) => ({
 	type: "FETCH_DESIGNS_ERROR",

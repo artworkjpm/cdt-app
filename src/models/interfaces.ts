@@ -2,6 +2,7 @@ export interface ActionData {
 	until: number;
 	type: string;
 	payload: any;
+	response: { data: any };
 }
 
 export interface Users {

@@ -32,7 +32,7 @@ export const designsReducer = (state = initState, action: ActionData) => {
 		case "FETCH_DESIGNS_SUCCESS":
 			return {
 				...state,
-				designs: action.payload,
+				designs: action.response.data,
 			};
 		case "UPDATE_DESIGN_OBJECT":
 			return {
