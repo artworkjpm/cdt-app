@@ -34,6 +34,13 @@ export const designsReducer = (state = initState, action: ActionData) => {
 				...state,
 				designs: action.editedArray,
 			};
+		case "FETCH_DESIGNS_FAILURE":
+			return {
+				...state,
+				loading: false,
+				users: [],
+				error: action.error,
+			};
 		case "LOAD_SCROLLER":
 			return {
 				...state,

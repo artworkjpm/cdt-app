@@ -1,11 +1,11 @@
-import { Action, Dispatch } from "redux";
-import axios from "axios";
-import { from } from "rxjs";
-import { map } from "rxjs/operators";
-import moment from "moment";
-import { SetoutsModel } from "../../models/interfaces";
+export const fetchSetouts = (until: number) => {
+	return {
+		type: "FETCH_SETOUTS_SAGA",
+		until,
+	};
+};
 
-export const fetchSetouts = (fromNumber: number) => (dispatch: Dispatch<Action>) => {
+/* export const fetchSetouts = (fromNumber: number) => (dispatch: Dispatch<Action>) => {
 	dispatch({
 		type: "FETCH_SETOUTS_REQUEST",
 	});
@@ -24,10 +24,8 @@ export const fetchSetouts = (fromNumber: number) => (dispatch: Dispatch<Action>)
 			})
 		)
 		.subscribe();
-};
-export const updateAmount = (until: number) => (dispatch: Dispatch<Action>) => {
-	dispatch({
-		type: "LOAD_SCROLLER",
-		until,
-	});
-};
+}; */
+export const updateAmount = (until: number) => ({
+	type: "LOAD_SCROLLER",
+	until,
+});

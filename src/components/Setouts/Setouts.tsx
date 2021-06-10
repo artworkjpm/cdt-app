@@ -8,12 +8,15 @@ import DataTable from "../DataTable/DataTable";
 
 export default function Setouts() {
 	const dispatch = useDispatch();
+
 	const data = useSelector((state: { setOutsReducer: { setouts: [SetoutsModel] } }) => state.setOutsReducer.setouts);
+
 	const until = useSelector((state: { setOutsReducer: { until: number } }) => state.setOutsReducer.until);
 	const [openDialog, setOpenDialog] = useState(false);
+
 	useEffect(() => {
-		!data.length && dispatch(fetchSetouts(10));
-	}, [dispatch, data]);
+		dispatch(fetchSetouts(10));
+	}, [dispatch]);
 
 	const tableHeaders = ["Name", "Machine_Name", "Machine_Width", "Courses", "Last_Updated"];
 	const editableFields = ["name", "machine_name", "machine_width", "courses"];

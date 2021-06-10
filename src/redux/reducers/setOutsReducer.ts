@@ -16,10 +16,20 @@ export const setOutsReducer = (state = initState, action: ActionData) => {
 				error: null,
 			};
 		case "FETCH_SETOUTS_SUCCESS":
+			console.log(action);
+
 			return {
 				...state,
 				loading: false,
-				setouts: action.payload,
+				setouts: action.response.data,
+			};
+
+		case "FETCH_SETOUTS_FAIL":
+			return {
+				...state,
+				loading: false,
+				setouts: [],
+				error: action.error,
 			};
 
 		case "LOAD_SCROLLER":

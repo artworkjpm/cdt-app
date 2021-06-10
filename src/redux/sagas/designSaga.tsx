@@ -2,7 +2,6 @@ import axios from "axios";
 import moment from "moment";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { DesignsItems, Users } from "../../models/interfaces";
-import { fetchDesignsFailure } from "../actions/designActions";
 /* const call: any = Effects.call; */
 
 export default function* designSaga() {
@@ -20,11 +19,7 @@ function* fetchDesignsSaga(action: any): any {
 		yield put({ type: "FETCH_DESIGNS_SUCCESS", editedArray });
 	} catch (e) {
 		console.error(e.message);
-		yield put(
-			fetchDesignsFailure({
-				error: e.message,
-			})
-		);
+		yield put({ type: "FETCH_DESIGNS_FAILURE", error: e.message });
 	}
 }
 

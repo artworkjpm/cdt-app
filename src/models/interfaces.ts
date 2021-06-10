@@ -1,4 +1,6 @@
 export interface ActionData {
+	response: any;
+	error: any;
 	editedArray: NewDesignArrayObject;
 	until: number;
 	type: string;

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { all, call, put, takeLatest } from "redux-saga/effects";
 import { Users } from "../../models/interfaces";
-import { fetchDesigns, fetchUsersFailure, fetchUsersSuccess } from "../actions/designActions";
+import { fetchDesigns, fetchUsersSuccess } from "../actions/designActions";
 
 function* usersSaga() {
 	yield all([takeLatest("FETCH_USERS_SAGA", fetchUsersSaga)]);
@@ -15,11 +15,7 @@ function* fetchUsersSaga(): any {
 		yield put(fetchUsersSuccess(response.data));
 		yield put(fetchDesigns(10, response.data));
 	} catch (e) {
-		yield put(
-			fetchUsersFailure({
-				error: e.message,
-			})
-		);
+		yield put({ type: "SAVE_USERS_ERROR", error: e.message });
 	}
 }
 
